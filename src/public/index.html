@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printer Url</title>
+   
+    <link rel="stylesheet" href="css/fontawesome-7.css" />
+    <script src="js/fontawesome-7.js"></script>
+
+    <script src="js/tailwindcss.js"></script>
+    
+    <script src="js/alpine.js"></script>
+    <script src="js/app.js"></script>
+    
+    
+</head>
+<body class="text-slate-600 bg-slate-100">
+    <header class="p-4 bg-slate-800 text-slate-100">
+        <h2 class="text-2xl text-center">
+            <i class="fa-solid fa-print"></i> Printer Url
+        </h2>
+    </header>
+    <section class="py-12 px-4" x-data="app">
+        <h3 class="text-center text-xl"><i class="fa-solid fa-gear"></i> Configurações:</h3>
+        <div class="flex flex-col gap-2 justify text-center py-4">
+            <label class="px-2">
+                <span class="">
+                    <i class="fa-solid fa-print text-base"></i> Impressora:
+                </span>
+                <br>
+                <!-- <span x-text="printerName"></span> -->
+                 <span x-show="loadingPrinters"><i class="animate-spin fa-solid fa-circle-notch"></i></span>
+                <input type="text" x-model="printerName" class="border rounded-md px-2 mt-2 text-center">
+            </label>
+            <!-- <label class="px-2">
+                <span class="">
+                    <i class="fa-solid fa-print text-base"></i> Impressora:
+                </span>
+                <br>
+               
+                 <span x-show="loadingPrinters"><i class="animate-spin fa-solid fa-circle-notch"></i></span>
+                <select x-model="printerName" style="max-width: 120px;">
+                    <template x-for="print in printers" x-key="print.Name">
+                        <option x-bind:value="print.Name" x-bind:selected="print.Name == printerName">
+                            <span x-text="print.Name"></span>
+                        </option>
+                    </template>
+                </select>
+            </label> -->
+            <label class="px-2">
+                <span class="">
+                    <i class="fa-solid fa-repeat"></i> Orientação:
+                </span>
+                <br>
+                <select x-model="orientation" class="px-2 rounded-md mt-2">
+                    <option value="0" x-bind:selected="orientation == 0">Retrato</option>
+                    <option value="1" x-bind:selected="orientation == 1">Paisagem</option>
+                </select>
+            </label>
+            <div class="text-center mt-4">
+                <button @Click="saveConfig()"
+                class="ease-in duration-300 p-2 hover:bg-slate-600 bg-slate-800 text-slate-100 rounded-md">
+                    <i class="fa-solid fa-floppy-disk"></i> Salvar Configurações
+                </button>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="border-t p-4 text-center text-sm">
+            <i class="fa-solid fa-print"></i> Printer Url | by Ejiraia
+        </div>
+    </footer>
+</body>
+</html>
